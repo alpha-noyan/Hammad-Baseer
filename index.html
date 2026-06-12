@@ -1,764 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hammad Baseer | Software Engineer & AI Enthusiast</title>
-    <link rel="icon" href="./profile.png" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#000000",
-              secondary: "#111111",
-              accent: "#333333",
-              light: "#666666",
-              lighter: "#999999",
-              highlight: "#FFFFFF",
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hammad Baseer | Software Engineer & AI Enthusiast</title>
+  <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#000000",
+            secondary: "#111111",
+            accent: "#1e1e1e",
+            light: "#a0a0a0",
+            lighter: "#cccccc",
+            highlight: "#ffffff",
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.8s ease-out',
+            'fade-in': 'fadeIn 1s ease-out',
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            fadeUp: {
+              '0%': { opacity: 0, transform: 'translateY(30px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' },
             },
-            animation: {
-              'fade-up': 'fadeUp 0.8s ease-out',
-              'fade-in': 'fadeIn 1s ease-out',
-              'float': 'float 6s ease-in-out infinite',
+            fadeIn: {
+              '0%': { opacity: 0 },
+              '100%': { opacity: 1 },
             },
-            keyframes: {
-              fadeUp: {
-                '0%': { opacity: 0, transform: 'translateY(30px)' },
-                '100%': { opacity: 1, transform: 'translateY(0)' },
-              },
-              fadeIn: {
-                '0%': { opacity: 0 },
-                '100%': { opacity: 1 },
-              },
-              float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-20px)' },
-              },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-15px)' },
             },
           },
         },
-      }
-    </script>
-    <style>
-      /* Custom scrollbar */
-      ::-webkit-scrollbar {
-        width: 10px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #111111;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #333333;
-        border-radius: 5px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #444444;
-      }
-      
-      /* Smooth scrolling */
-      html {
-        scroll-behavior: smooth;
-      }
-      
-      /* Gradient text */
-      .gradient-text {
-        background: linear-gradient(90deg, #FFFFFF 0%, #AAAAAA 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-      
-      /* Card hover effects */
-      .hover-card {
-        transition: all 0.3s ease;
-      }
-      .hover-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-      }
-      
-      /* Timeline line */
-      .timeline-line {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 2px;
-        height: 100%;
-        background: linear-gradient(to bottom, transparent, #333333, transparent);
-      }
-    </style>
-  </head>
-  <body class="bg-primary text-white">
-    <!-- Header -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-secondary/90 backdrop-blur-md border-b border-accent">
-      <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#" class="text-2xl font-bold gradient-text">Hammad<span class="text-highlight">.</span></a>
-        
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex space-x-8">
-          <a href="#home" class="text-lighter hover:text-highlight transition-colors duration-300">Home</a>
-          <a href="#about" class="text-lighter hover:text-highlight transition-colors duration-300">About</a>
-          <a href="#experience" class="text-lighter hover:text-highlight transition-colors duration-300">Experience</a>
-          <a href="#skills" class="text-lighter hover:text-highlight transition-colors duration-300">Skills</a>
-          <a href="#projects" class="text-lighter hover:text-highlight transition-colors duration-300">Projects</a>
-          <a href="#contact" class="text-lighter hover:text-highlight transition-colors duration-300">Contact</a>
-        </div>
-        
-        <!-- Mobile menu button -->
-        <button id="menuBtn" class="md:hidden text-lighter hover:text-highlight">
-          <i class="fas fa-bars text-2xl"></i>
-        </button>
-      </nav>
-      
-      <!-- Mobile Navigation -->
-      <div id="mobileMenu" class="md:hidden hidden bg-secondary border-b border-accent">
-        <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
-          <a href="#home" class="text-lighter hover:text-highlight py-2 transition-colors">Home</a>
-          <a href="#about" class="text-lighter hover:text-highlight py-2 transition-colors">About</a>
-          <a href="#experience" class="text-lighter hover:text-highlight py-2 transition-colors">Experience</a>
-          <a href="#skills" class="text-lighter hover:text-highlight py-2 transition-colors">Skills</a>
-          <a href="#projects" class="text-lighter hover:text-highlight py-2 transition-colors">Projects</a>
-          <a href="#contact" class="text-lighter hover:text-highlight py-2 transition-colors">Contact</a>
-        </div>
-      </div>
-    </header>
+      },
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #555; }
+    html { scroll-behavior: smooth; }
+    .gradient-text {
+      background: linear-gradient(135deg, #FFFFFF 0%, #b0b0b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hover-card {
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    .hover-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.5);
+      border-color: #333;
+    }
+    .bg-grid {
+      background-image: linear-gradient(to right, #1a1a1a 1px, transparent 1px),
+                        linear-gradient(to bottom, #1a1a1a 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .timeline-dot {
+      transition: all 0.2s ease;
+    }
+    .group:hover .timeline-dot {
+      transform: scale(1.2);
+      background-color: #ffffff;
+    }
+  </style>
+</head>
+<body class="bg-primary text-white font-sans antialiased">
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen pt-24 md:pt-32 flex items-center">
-      <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
-        <div class="md:w-1/2 mb-12 md:mb-0 animate-fade-up">
-          <h1 class="text-4xl md:text-6xl font-bold mb-4">
-            Hammad <span class="gradient-text">Baseer</span>
-          </h1>
-          <h2 class="text-2xl md:text-3xl text-lighter mb-6">
-            Software Engineer & <span class="text-highlight">AI Enthusiast</span>
-          </h2>
-          <p class="text-light mb-8 max-w-lg">
-            I build intelligent, scalable web applications with a focus on modern technologies. 
-            Passionate about solving complex problems through code and exploring the frontiers of AI.
-          </p>
-          <div class="flex space-x-4">
-            <a href="#contact" class="bg-highlight text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300">
-              Contact Me
-            </a>
-            <a href="#projects" class="border border-light text-highlight px-6 py-3 rounded-lg font-semibold hover:bg-accent transition-colors duration-300">
-              View Projects
-            </a>
-          </div>
-        </div>
-        
-        <div class="md:w-1/2 flex justify-center animate-fade-in">
-          <div class="relative w-64 h-64 md:w-96 md:h-96">
-            <div class="absolute inset-0 bg-gradient-to-r from-gray-800 to-gray-900 rounded-full animate-float"></div>
-            <div class="absolute inset-4 bg-primary rounded-full flex items-center justify-center">
-              <img src="./profile.png" alt="Hammad Baseer" class="w-11/12 h-11/12 rounded-full object-cover border-4 border-accent">
-            </div>
-          </div>
-        </div>
+  <!-- Header Navigation -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-lg border-b border-white/10 transition-all duration-300">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold tracking-tight"><span class="gradient-text">Hammad</span><span class="text-white">.</span></a>
+      <div class="hidden md:flex space-x-8 text-sm font-medium">
+        <a href="#home" class="text-gray-300 hover:text-white transition">Home</a>
+        <a href="#about" class="text-gray-300 hover:text-white transition">About</a>
+        <a href="#experience" class="text-gray-300 hover:text-white transition">Experience</a>
+        <a href="#skills" class="text-gray-300 hover:text-white transition">Skills</a>
+        <a href="#projects" class="text-gray-300 hover:text-white transition">Projects</a>
+        <a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a>
       </div>
-    </section>
+      <button id="menuBtn" class="md:hidden text-gray-300 hover:text-white text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+    <div id="mobileMenu" class="md:hidden hidden bg-black/95 backdrop-blur-md border-t border-white/10">
+      <div class="container mx-auto px-6 py-4 flex flex-col space-y-3 text-center">
+        <a href="#home" class="text-gray-300 py-2 hover:text-white">Home</a>
+        <a href="#about" class="text-gray-300 py-2 hover:text-white">About</a>
+        <a href="#experience" class="text-gray-300 py-2 hover:text-white">Experience</a>
+        <a href="#skills" class="text-gray-300 py-2 hover:text-white">Skills</a>
+        <a href="#projects" class="text-gray-300 py-2 hover:text-white">Projects</a>
+        <a href="#contact" class="text-gray-300 py-2 hover:text-white">Contact</a>
+      </div>
+    </div>
+  </header>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-secondary">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-          About <span class="gradient-text">Me</span>
+  <!-- Hero Section (exactly reflecting resume: AI & IoT Enthusiast, 2.5 years experience) -->
+  <section id="home" class="min-h-screen flex items-center pt-24 md:pt-0 relative overflow-hidden bg-grid">
+    <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div class="lg:w-1/2 animate-fade-up z-10">
+        <div class="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm rounded-full px-4 py-1.5 border border-white/10 mb-6">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          </span>
+          <span class="text-xs text-gray-300 tracking-wide">OPEN FOR OPPORTUNITIES</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold leading-tight tracking-tight">
+          Hammad <span class="gradient-text">Baseer</span>
+        </h1>
+        <h2 class="text-2xl md:text-3xl text-gray-300 mt-4 font-light">
+          Software Engineer | <span class="text-white font-medium">AI & IoT Enthusiast</span>
         </h2>
-        
-        <div class="flex flex-col lg:flex-row gap-12">
-          <div class="lg:w-2/3">
-            <h3 class="text-2xl font-bold mb-6 text-highlight">Professional Summary</h3>
-            <div class="space-y-4 text-light">
-              <p>
-                I'm a passionate Software Engineer with 2+ years of professional experience in building 
-                and deploying robust web applications. My expertise spans across modern JavaScript 
-                ecosystems with a strong focus on the MERN stack and Next.js.
-              </p>
-              <p>
-                With a Bachelor's degree in Computer Science and hands-on experience at Brandora Agency, 
-                I've developed proficiency in full-stack development, database management, and cloud 
-                deployments. I specialize in optimizing applications for performance, scalability, and SEO.
-              </p>
-              <p>
-                As an AI enthusiast, I'm constantly exploring the intersection of web development and 
-                artificial intelligence, particularly in LLM integration and AI-powered applications.
-              </p>
-              <p>
-                My approach combines technical excellence with problem-solving skills to deliver 
-                efficient, maintainable solutions that meet both business requirements and user expectations.
-              </p>
+        <p class="text-gray-400 mt-6 max-w-lg leading-relaxed">
+          2.5 years of experience building scalable full‑stack web apps, AI integrations, real‑time systems, 
+          and IoT solutions (ESP32). Passionate about intelligent cross‑platform software.
+        </p>
+        <div class="flex flex-wrap gap-4 mt-8">
+          <a href="#contact" class="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition shadow-lg">Contact Me</a>
+          <a href="#projects" class="border border-gray-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition">View Projects</a>
+        </div>
+        <div class="flex gap-6 mt-8 text-gray-400">
+          <a href="https://www.linkedin.com/in/hammad-baseer-763682279/" target="_blank" class="hover:text-white transition"><i class="fab fa-linkedin-in text-xl"></i></a>
+          <a href="https://github.com/alpha-nayan" target="_blank" class="hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
+          <a href="mailto:hammadbaseer4@gmail.com" class="hover:text-white transition"><i class="fas fa-envelope text-xl"></i></a>
+        </div>
+      </div>
+      <div class="lg:w-1/2 flex justify-center animate-fade-in">
+        <div class="relative w-64 h-64 md:w-80 md:h-80">
+          <div class="absolute inset-0 bg-gradient-to-br from-gray-800 to-black rounded-full opacity-40 animate-pulse-slow"></div>
+          <div class="absolute inset-3 bg-secondary rounded-full flex items-center justify-center border border-white/20 shadow-2xl">
+            <div class="w-full h-full rounded-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+              <i class="fas fa-code text-7xl text-gray-400 opacity-80"></i>
             </div>
           </div>
-          
-          <div class="lg:w-1/3">
-            <div class="bg-accent rounded-xl p-8 hover-card">
-              <h3 class="text-2xl font-bold mb-6 text-highlight">Quick Facts</h3>
-              <ul class="space-y-4">
-                <li class="flex items-center">
-                  <i class="fas fa-graduation-cap text-highlight mr-3"></i>
-                  <span>BSc in Computer Science</span>
-                </li>
-                <li class="flex items-center">
-                  <i class="fas fa-briefcase text-highlight mr-3"></i>
-                  <span>2+ Years Experience</span>
-                </li>
-                <li class="flex items-center">
-                  <i class="fas fa-map-marker-alt text-highlight mr-3"></i>
-                  <span>Kohat, Pakistan</span>
-                </li>
-                <li class="flex items-center">
-                  <i class="fas fa-code text-highlight mr-3"></i>
-                  <span>Full Stack Developer</span>
-                </li>
-                <li class="flex items-center">
-                  <i class="fas fa-brain text-highlight mr-3"></i>
-                  <span>AI Enthusiast</span>
-                </li>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section (based on summary & education details from resume) -->
+  <section id="about" class="py-24 bg-secondary/30 border-y border-white/5">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center"><span class="gradient-text">About</span> Me</h2>
+      <div class="flex flex-col lg:flex-row gap-12">
+        <div class="lg:w-2/3">
+          <h3 class="text-2xl font-bold text-white mb-5">Software Engineer with MERN & AI Passion</h3>
+          <div class="space-y-4 text-gray-300 leading-relaxed">
+            <p>Software Engineer with 2.5 years of experience building scalable full-stack web applications using the MERN stack and modern JavaScript. Skilled in REST APIs, real-time systems, AI integrations, and microservices using React.js, Next.js, Node.js, Express, MongoDB, PostgreSQL, and Socket.io.</p>
+            <p>Hands-on integration of AI/LLM APIs, payment gateways, and third-party services. Experienced in mobile development (React Native) and IoT systems (ESP32-based solutions) including embedded systems, sensor integration, and remote-control apps.</p>
+            <p>BSc in Computer Science (2022 – June 2026) with coursework in AI, Data Structures, Database Systems, and Computer Networks. Focused on building intelligent, scalable, cross-platform solutions.</p>
+          </div>
+        </div>
+        <div class="lg:w-1/3">
+          <div class="bg-black/40 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover-card">
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center"><i class="fas fa-id-card mr-3 text-gray-400"></i>Quick Info</h3>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex items-center"><i class="fas fa-map-marker-alt w-5 text-gray-500 mr-3"></i>Islamabad, Pakistan</li>
+              <li class="flex items-center"><i class="fas fa-briefcase w-5 text-gray-500 mr-3"></i>2.5+ Years Experience</li>
+              <li class="flex items-center"><i class="fas fa-graduation-cap w-5 text-gray-500 mr-3"></i>BSc CS (2022 - 2026)</li>
+              <li class="flex items-center"><i class="fas fa-microchip w-5 text-gray-500 mr-3"></i>IoT & ESP32 Specialist</li>
+              <li class="flex items-center"><i class="fas fa-robot w-5 text-gray-500 mr-3"></i>LLM / AI Integration</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section (exactly matching resume roles + internship) -->
+  <section id="experience" class="py-24 bg-primary">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">Professional <span class="gradient-text">Experience</span></h2>
+      <div class="max-w-4xl mx-auto relative">
+        <!-- Timeline vertical line (hidden on mobile) -->
+        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-white/10"></div>
+        <!-- Experience 1: MERN Developer (Brandora Agency) June 2023 - October 2025 -->
+        <div class="relative flex flex-col md:flex-row justify-between items-start md:items-center mb-12 group">
+          <div class="md:w-5/12 md:text-right pr-0 md:pr-8 mb-6 md:mb-0">
+            <div class="bg-accent/60 backdrop-blur-sm rounded-xl p-6 border border-white/5 hover-card">
+              <span class="inline-block px-3 py-1 bg-white/10 text-white text-xs rounded-full mb-3">June 2023 – Oct 2025</span>
+              <h3 class="text-2xl font-bold text-white">MERN Developer</h3>
+              <h4 class="text-gray-400 font-medium mb-3">Brandora Agency · Kohat</h4>
+              <ul class="text-sm text-gray-300 space-y-2">
+                <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mt-1 mr-2 text-xs"></i>Developed scalable full‑stack apps using MERN & Next.js, reusable components → cut dev time by 30%.</li>
+                <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mt-1 mr-2 text-xs"></i>Designed RESTful APIs, integrated third‑party services & payment gateways.</li>
+                <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mt-1 mr-2 text-xs"></i>Implemented real‑time features with Socket.io and WebSockets.</li>
+                <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mt-1 mr-2 text-xs"></i>Optimized performance, participated in Agile processes & AI‑powered workflow automation.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full border-2 border-black timeline-dot"></div>
+          <div class="md:w-5/12"></div>
+        </div>
+        
+        <!-- Experience 2: Internship (Jun 2023 - Jul 2024 but note: overlap? resume states internship then developer, keeping exact as provided) Actually PDF: June 2023 - October 2025 (MERN Developer) and Web Developer Internship June 2023 - July 2024. I'll reflect both-->
+        <div class="relative flex flex-col md:flex-row justify-between items-start md:items-center group">
+          <div class="md:w-5/12"></div>
+          <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full border-2 border-black timeline-dot"></div>
+          <div class="md:w-5/12 md:pl-8">
+            <div class="bg-accent/60 backdrop-blur-sm rounded-xl p-6 border border-white/5 hover-card">
+              <span class="inline-block px-3 py-1 bg-white/10 text-white text-xs rounded-full mb-3">Web Developer Intern (2023 – 2024)</span>
+              <h3 class="text-2xl font-bold text-white">Intern Web Developer</h3>
+              <h4 class="text-gray-400 font-medium mb-3">Brandora Agency</h4>
+              <ul class="text-sm text-gray-300 space-y-2">
+                <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mt-1 mr-2 text-xs"></i>Built responsive interfaces with React.js & Tailwind, crafted REST APIs using Node.js/Express.</li>
+                <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mt-1 mr-2 text-xs"></i>Designed MongoDB & MySQL schemas, assisted in debugging and performance tuning.</li>
+                <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mt-1 mr-2 text-xs"></i>Participated in code reviews and team collaboration.</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-primary">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-          Technical <span class="gradient-text">Skills</span>
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Frontend Skills -->
-          <div class="bg-secondary rounded-xl p-6 hover-card">
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
-                <i class="fas fa-desktop text-2xl text-highlight"></i>
-              </div>
-              <h3 class="text-xl font-bold text-highlight">Frontend</h3>
-            </div>
-            <ul class="space-y-2">
-              <li class="flex justify-between">
-                <span>React.js</span>
-                <span class="text-highlight">Advanced</span>
-              </li>
-              <li class="flex justify-between">
-                <span>Next.js</span>
-                <span class="text-highlight">Advanced</span>
-              </li>
-              <li class="flex justify-between">
-                <span>React Native</span>
-                <span class="text-highlight">Intermediate</span>
-              </li>
-              <li class="flex justify-between">
-                <span>JavaScript/TypeScript</span>
-                <span class="text-highlight">Expert</span>
-              </li>
-              <li class="flex justify-between">
-                <span>Tailwind CSS</span>
-                <span class="text-highlight">Advanced</span>
-              </li>
-            </ul>
-          </div>
-          
-          <!-- Backend Skills -->
-          <div class="bg-secondary rounded-xl p-6 hover-card">
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
-                <i class="fas fa-server text-2xl text-highlight"></i>
-              </div>
-              <h3 class="text-xl font-bold text-highlight">Backend</h3>
-            </div>
-            <ul class="space-y-2">
-              <li class="flex justify-between">
-                <span>Node.js</span>
-                <span class="text-highlight">Advanced</span>
-              </li>
-              <li class="flex justify-between">
-                <span>Express.js</span>
-                <span class="text-highlight">Advanced</span>
-              </li>
-              <li class="flex justify-between">
-                <span>FastAPI</span>
-                <span class="text-highlight">Intermediate</span>
-              </li>
-              <li class="flex justify-between">
-                <span>REST APIs</span>
-                <span class="text-highlight">Advanced</span>
-              </li>
-              <li class="flex justify-between">
-                <span>WebSockets</span>
-                <span class="text-highlight">Intermediate</span>
-              </li>
-            </ul>
-          </div>
-          
-          <!-- Database & AI Skills -->
-          <div class="bg-secondary rounded-xl p-6 hover-card">
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
-                <i class="fas fa-database text-2xl text-highlight"></i>
-              </div>
-              <h3 class="text-xl font-bold text-highlight">Database & AI</h3>
-            </div>
-            <ul class="space-y-2">
-              <li class="flex justify-between">
-                <span>MongoDB</span>
-                <span class="text-highlight">Advanced</span>
-              </li>
-              <li class="flex justify-between">
-                <span>PostgreSQL</span>
-                <span class="text-highlight">Intermediate</span>
-              </li>
-              <li class="flex justify-between">
-                <span>MySQL</span>
-                <span class="text-highlight">Intermediate</span>
-              </li>
-              <li class="flex justify-between">
-                <span>LLM Integration</span>
-                <span class="text-highlight">Intermediate</span>
-              </li>
-              <li class="flex justify-between">
-                <span>AI/ML Basics</span>
-                <span class="text-highlight">Intermediate</span>
-              </li>
-            </ul>
-          </div>
-          
-          <!-- Tools & Others -->
-          <div class="bg-secondary rounded-xl p-6 hover-card">
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
-                <i class="fas fa-tools text-2xl text-highlight"></i>
-              </div>
-              <h3 class="text-xl font-bold text-highlight">Tools & Others</h3>
-            </div>
-            <ul class="space-y-2">
-              <li class="flex justify-between">
-                <span>Git & GitHub</span>
-                <span class="text-highlight">Advanced</span>
-              </li>
-              <li class="flex justify-between">
-                <span>AWS & Vercel</span>
-                <span class="text-highlight">Intermediate</span>
-              </li>
-              <li class="flex justify-between">
-                <span>Nginx</span>
-                <span class="text-highlight">Intermediate</span>
-              </li>
-              <li class="flex justify-between">
-                <span>Three.js</span>
-                <span class="text-highlight">Intermediate</span>
-              </li>
-              <li class="flex justify-between">
-                <span>Agile/Scrum</span>
-                <span class="text-highlight">Advanced</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-secondary">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-          Professional <span class="gradient-text">Experience</span>
-        </h2>
-        
-        <div class="relative max-w-4xl mx-auto">
-          <!-- Timeline line -->
-          <div class="timeline-line hidden md:block"></div>
-          
-          <!-- Experience Items -->
-          <div class="space-y-12">
-            <!-- Experience 1 -->
-            <div class="flex flex-col md:flex-row items-center">
-              <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
-                <div class="bg-accent rounded-xl p-6 hover-card">
-                  <span class="inline-block px-4 py-1 bg-highlight text-primary rounded-full text-sm font-semibold mb-3">Aug 2024 - Oct 2025</span>
-                  <h3 class="text-2xl font-bold text-highlight mb-2">MERN Developer</h3>
-                  <h4 class="text-lighter font-semibold mb-4">Brandora Agency</h4>
-                  <ul class="text-light space-y-2 text-sm">
-                    <li class="flex items-start">
-                      <i class="fas fa-check text-highlight mr-2 mt-1"></i>
-                      <span>Developed full-stack web apps using React.js, Next.js, Node.js, Express.js</span>
-                    </li>
-                    <li class="flex items-start">
-                      <i class="fas fa-check text-highlight mr-2 mt-1"></i>
-                      <span>Designed and implemented RESTful APIs with MongoDB, PostgreSQL, MySQL</span>
-                    </li>
-                    <li class="flex items-start">
-                      <i class="fas fa-check text-highlight mr-2 mt-1"></i>
-                      <span>Deployed applications using Vercel, AWS (EC2, S3, RDS) and Heroku</span>
-                    </li>
-                    <li class="flex items-start">
-                      <i class="fas fa-check text-highlight mr-2 mt-1"></i>
-                      <span>Built server-rendered (SSR) and static (SSG) websites with Next.js</span>
-                    </li>
-                    <li class="flex items-start">
-                      <i class="fas fa-check text-highlight mr-2 mt-1"></i>
-                      <span>Configured Nginx reverse proxy for production deployments</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              
-              <div class="hidden md:flex w-12 h-12 bg-accent rounded-full items-center justify-center z-10">
-                <i class="fas fa-briefcase text-highlight"></i>
-              </div>
-              
-              <div class="md:w-1/2 md:pl-12"></div>
-            </div>
-            
-            <!-- Experience 2 -->
-            <div class="flex flex-col md:flex-row items-center">
-              <div class="md:w-1/2 md:pr-12"></div>
-              
-              <div class="hidden md:flex w-12 h-12 bg-accent rounded-full items-center justify-center z-10">
-                <i class="fas fa-code text-highlight"></i>
-              </div>
-              
-              <div class="md:w-1/2 md:pl-12">
-                <div class="bg-accent rounded-xl p-6 hover-card">
-                  <span class="inline-block px-4 py-1 bg-highlight text-primary rounded-full text-sm font-semibold mb-3">Jun 2023 - Jul 2024</span>
-                  <h3 class="text-2xl font-bold text-highlight mb-2">Web Developer (Internship)</h3>
-                  <h4 class="text-lighter font-semibold mb-4">Brandora Agency</h4>
-                  <ul class="text-light space-y-2 text-sm">
-                    <li class="flex items-start">
-                      <i class="fas fa-check text-highlight mr-2 mt-1"></i>
-                      <span>Developed responsive web interfaces using React.js and modern CSS</span>
-                    </li>
-                    <li class="flex items-start">
-                      <i class="fas fa-check text-highlight mr-2 mt-1"></i>
-                      <span>Built RESTful APIs with Node.js and Express.js</span>
-                    </li>
-                    <li class="flex items-start">
-                      <i class="fas fa-check text-highlight mr-2 mt-1"></i>
-                      <span>Designed database schemas for MongoDB and MySQL</span>
-                    </li>
-                    <li class="flex items-start">
-                      <i class="fas fa-check text-highlight mr-2 mt-1"></i>
-                      <span>Participated in code reviews and team knowledge sharing</span>
-                    </li>
-                    <li class="flex items-start">
-                      <i class="fas fa-check text-highlight mr-2 mt-1"></i>
-                      <span>Assisted in debugging and performance optimization</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-primary">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-          Featured <span class="gradient-text">Projects</span>
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          
-          <!-- Project 3 -->
-          <div class="bg-secondary rounded-xl overflow-hidden hover-card">
-            <div class="h-48 bg-accent overflow-hidden">
-              <div class="w-full h-full flex items-center justify-center bg-gradient-to-r from-gray-800 to-gray-900">
-                <i class="fas fa-book text-6xl text-highlight"></i>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-2xl font-bold text-highlight mb-3">Nermeen Ali</h3>
-              <p class="text-light mb-4">
-                An interactive 3D book visualization platform using Three.js with realistic page-turning animations.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">React.js</span>
-                <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">Tailwind CSS</span>
-                <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">Express.js</span>
-                <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">MongoDB</span>
-              </div>
-              <div class="flex space-x-4">
-                <a href="https://nermeenali.com" class="flex items-center text-highlight hover:text-white transition-colors">
-                  <i class="fas fa-external-link-alt mr-2"></i> Live Demo
-                </a>
-                <a href="https://github.com/alpha-noyan" class="flex items-center text-highlight hover:text-white transition-colors">
-                  <i class="fab fa-github mr-2"></i> Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 3 - Shamay.ai (exact same structure as Nermeen Ali card) -->
-<div class="bg-secondary rounded-xl overflow-hidden hover-card">
-  <div class="h-48 bg-accent overflow-hidden">
-    <div class="w-full h-full flex items-center justify-center bg-gradient-to-r from-gray-800 to-gray-900">
-      <!-- Changed icon from fa-book to something representing AI/Data Extraction -->
-      <i class="fas fa-robot text-6xl text-highlight"></i>
     </div>
-  </div>
-  <div class="p-6">
-    <h3 class="text-2xl font-bold text-highlight mb-3">Shamay.ai</h3>
-    <p class="text-light mb-4">
-      AI-Powered Data Extraction Platform — extracts structured data from images, PDFs, and files using OpenAI LLM.
-    </p>
-    <div class="flex flex-wrap gap-2 mb-6">
-      <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">Next.js</span>
-      <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">Node.js</span>
-      <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">Express.js</span>
-      <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">PostgreSQL</span>
-      <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">Tailwind CSS</span>
+  </section>
+
+  <!-- Skills Section (category based on resume) -->
+  <section id="skills" class="py-24 bg-secondary/30">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Technical <span class="gradient-text">Skills</span></h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-black/40 rounded-xl p-6 border border-white/5 hover-card">
+          <div class="flex items-center mb-4 gap-3"><i class="fab fa-react text-2xl text-white"></i><h3 class="text-xl font-bold">Frontend</h3></div>
+          <div class="space-y-2 text-gray-300"><span>React.js, Next.js</span><div class="w-full bg-gray-800 rounded-full h-1.5"><div class="bg-white h-1.5 rounded-full w-[90%]"></div></div><span>Tailwind, HTML5/CSS3</span><div class="w-full bg-gray-800 rounded-full h-1.5"><div class="bg-white h-1.5 rounded-full w-[88%]"></div></div><span>JavaScript/TypeScript</span><div class="w-full bg-gray-800 rounded-full h-1.5"><div class="bg-white h-1.5 rounded-full w-[85%]"></div></div></div>
+        </div>
+        <div class="bg-black/40 rounded-xl p-6 border border-white/5 hover-card">
+          <div class="flex items-center mb-4 gap-3"><i class="fas fa-server text-2xl text-white"></i><h3 class="text-xl font-bold">Backend</h3></div>
+          <div class="space-y-2 text-gray-300"><span>Node.js, Express.js</span><div class="w-full bg-gray-800 rounded-full h-1.5"><div class="bg-white h-1.5 rounded-full w-[88%]"></div></div><span>FastAPI, REST APIs</span><div class="w-full bg-gray-800 rounded-full h-1.5"><div class="bg-white h-1.5 rounded-full w-[80%]"></div></div><span>Microservices, WebSockets</span><div class="w-full bg-gray-800 rounded-full h-1.5"><div class="bg-white h-1.5 rounded-full w-[85%]"></div></div></div>
+        </div>
+        <div class="bg-black/40 rounded-xl p-6 border border-white/5 hover-card">
+          <div class="flex items-center mb-4 gap-3"><i class="fas fa-database text-2xl text-white"></i><h3 class="text-xl font-bold">DB & AI</h3></div>
+          <div class="space-y-2 text-gray-300"><span>MongoDB, PostgreSQL</span><div class="w-full bg-gray-800 rounded-full h-1.5"><div class="bg-white h-1.5 rounded-full w-[85%]"></div></div><span>LLM / OpenAI Integration</span><div class="w-full bg-gray-800 rounded-full h-1.5"><div class="bg-white h-1.5 rounded-full w-[78%]"></div></div><span>MySQL, SQLite</span><div class="w-full bg-gray-800 rounded-full h-1.5"><div class="bg-white h-1.5 rounded-full w-[82%]"></div></div></div>
+        </div>
+        <div class="bg-black/40 rounded-xl p-6 border border-white/5 hover-card">
+          <div class="flex items-center mb-4 gap-3"><i class="fas fa-microchip text-2xl text-white"></i><h3 class="text-xl font-bold">IoT & Mobile</h3></div>
+          <div class="space-y-2 text-gray-300"><span>ESP32, ESP32-CAM</span><div class="w-full bg-gray-800 rounded-full h-1.5"><div class="bg-white h-1.5 rounded-full w-[85%]"></div></div><span>React Native, Expo</span><div class="w-full bg-gray-800 rounded-full h-1.5"><div class="bg-white h-1.5 rounded-full w-[80%]"></div></div><span>Git, Linux, VPS</span><div class="w-full bg-gray-800 rounded-full h-1.5"><div class="bg-white h-1.5 rounded-full w-[88%]"></div></div></div>
+        </div>
+      </div>
     </div>
-    <div class="flex space-x-4">
-      <a href="https://shamay.ai" class="flex items-center text-highlight hover:text-white transition-colors">
-        <i class="fas fa-external-link-alt mr-2"></i> Live Demo
-      </a>
-      <a href="https://github.com/alpha-noyan" class="flex items-center text-highlight hover:text-white transition-colors">
-        <i class="fab fa-github mr-2"></i> Code
-      </a>
+  </section>
+
+  <!-- Projects Section (matching resume: Shamay.ai, Robotic Car, Nermeen Ali e‑commerce, Attendify, Chor Police, AquaLedger) -->
+  <section id="projects" class="py-24 bg-primary">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-14 text-center">Featured <span class="gradient-text">Projects</span></h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <!-- Shamay.ai (AI Data Extraction) -->
+        <div class="bg-secondary/60 rounded-2xl overflow-hidden border border-white/5 hover-card">
+          <div class="h-48 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center"><i class="fas fa-brain text-6xl text-white/60"></i></div>
+          <div class="p-6"><h3 class="text-2xl font-bold text-white">Shamay.ai</h3><p class="text-gray-400 text-sm mt-1">AI-Powered Data Extraction Platform</p><p class="text-gray-300 mt-3">Extracts structured data from PDFs, images & documents. 92% extraction accuracy on 100+ docs. Scalable backend with PostgreSQL & OpenAI.</p><div class="flex flex-wrap gap-2 mt-4"><span class="text-xs bg-white/10 px-3 py-1 rounded-full">Next.js</span><span class="text-xs bg-white/10 px-3 py-1 rounded-full">Node.js</span><span class="text-xs bg-white/10 px-3 py-1 rounded-full">OpenAI API</span><span class="text-xs bg-white/10 px-3 py-1 rounded-full">PostgreSQL</span></div></div>
+        </div>
+        <!-- Robotic Car - Remote Surveillance (FYP) -->
+        <div class="bg-secondary/60 rounded-2xl overflow-hidden border border-white/5 hover-card">
+          <div class="h-48 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center"><i class="fas fa-robot text-6xl text-white/60"></i></div>
+          <div class="p-6"><h3 class="text-2xl font-bold text-white">Robotic Car Surveillance</h3><p class="text-gray-400 text-sm mt-1">Final Year IoT Project</p><p class="text-gray-300 mt-3">ESP32 & ESP32-CAM based robot with live streaming, remote control via React Native mobile app. Embedded systems & Wi-Fi control.</p><div class="flex flex-wrap gap-2 mt-4"><span class="text-xs bg-white/10 px-3 py-1 rounded-full">ESP32</span><span class="text-xs bg-white/10 px-3 py-1 rounded-full">MicroPython</span><span class="text-xs bg-white/10 px-3 py-1 rounded-full">React Native</span></div></div>
+        </div>
+        <!-- Nermeen Ali - E‑commerce with 3D -->
+        <div class="bg-secondary/60 rounded-2xl overflow-hidden border border-white/5 hover-card">
+          <div class="h-48 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center"><i class="fas fa-cube text-6xl text-white/60"></i></div>
+          <div class="p-6"><h3 class="text-2xl font-bold text-white">Nermeen Ali</h3><p class="text-gray-400 text-sm mt-1">E‑Commerce + 3D Visualization</p><p class="text-gray-300 mt-3">Full‑featured e‑commerce with interactive 3D product views, Tamara payment gateway, admin dashboard. React.js, Node.js, MongoDB.</p><div class="flex flex-wrap gap-2 mt-4"><span class="text-xs bg-white/10 px-3 py-1 rounded-full">React.js</span><span class="text-xs bg-white/10 px-3 py-1 rounded-full">Three.js</span><span class="text-xs bg-white/10 px-3 py-1 rounded-full">MongoDB</span></div></div>
+        </div>
+        <!-- Attendify & Chor Police & AquaLedger compact but show 2 core ones: Attendify -->
+        <div class="bg-secondary/60 rounded-2xl overflow-hidden border border-white/5 hover-card">
+          <div class="h-48 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center"><i class="fas fa-clock text-6xl text-white/60"></i></div>
+          <div class="p-6"><h3 class="text-2xl font-bold text-white">Attendify</h3><p class="text-gray-400 text-sm mt-1">Real-Time Attendance System</p><p class="text-gray-300 mt-3">Socket.io synchronization, scalable backend architecture. React, Node, MongoDB, real‑time tracking.</p><div class="flex flex-wrap gap-2 mt-4"><span class="text-xs bg-white/10 px-3 py-1 rounded-full">Socket.io</span><span class="text-xs bg-white/10 px-3 py-1 rounded-full">React</span><span class="text-xs bg-white/10 px-3 py-1 rounded-full">Express</span></div></div>
+        </div>
+        <!-- Chor Police Multiplayer game + AquaLedger mobile (extra) -->
+        <div class="bg-secondary/60 rounded-2xl overflow-hidden border border-white/5 hover-card">
+          <div class="h-48 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center"><i class="fas fa-gamepad text-6xl text-white/60"></i></div>
+          <div class="p-6"><h3 class="text-2xl font-bold text-white">Chor Police</h3><p class="text-gray-400 text-sm mt-1">Real-Time Multiplayer Game</p><p class="text-gray-300 mt-3">Web‑based multiplayer game with real‑time sync, Socket.io for state management & smooth gameplay.</p><div class="flex flex-wrap gap-2 mt-4"><span class="text-xs bg-white/10 px-3 py-1 rounded-full">Socket.io</span><span class="text-xs bg-white/10 px-3 py-1 rounded-full">React</span><span class="text-xs bg-white/10 px-3 py-1 rounded-full">Node.js</span></div></div>
+        </div>
+        <!-- AquaLedger offline-first mobile -->
+        <div class="bg-secondary/60 rounded-2xl overflow-hidden border border-white/5 hover-card">
+          <div class="h-48 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center"><i class="fas fa-tint text-6xl text-white/60"></i></div>
+          <div class="p-6"><h3 class="text-2xl font-bold text-white">AquaLedger</h3><p class="text-gray-400 text-sm mt-1">Water Plant Management</p><p class="text-gray-300 mt-3">Offline‑first mobile diary app for stock, orders, billing, expenses. React Native (Expo), SQLite. Real‑world shop environment.</p><div class="flex flex-wrap gap-2 mt-4"><span class="text-xs bg-white/10 px-3 py-1 rounded-full">React Native</span><span class="text-xs bg-white/10 px-3 py-1 rounded-full">Expo</span><span class="text-xs bg-white/10 px-3 py-1 rounded-full">SQLite</span></div></div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-          
-          <!-- Project 1 -->
-          <div class="bg-secondary rounded-xl overflow-hidden hover-card">
-            <div class="h-48 bg-accent overflow-hidden">
-              <div class="w-full h-full flex items-center justify-center bg-gradient-to-r from-gray-800 to-gray-900">
-                <i class="fas fa-calendar-check text-6xl text-highlight"></i>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-2xl font-bold text-highlight mb-3">Attendify</h3>
-              <p class="text-light mb-4">
-                A comprehensive attendance management system with real-time tracking, reporting, and analytics features.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">React.js</span>
-                <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">Node.js</span>
-                <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">MongoDB</span>
-                <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">Express.js</span>
-              </div>
-              <div class="flex space-x-4">
-                <a href="https://attendance.bridgerex.com" class="flex items-center text-highlight hover:text-white transition-colors">
-                  <i class="fas fa-external-link-alt mr-2"></i> Live Demo
-                </a>
-                <a href="https://github.com/alpha-noyan" class="flex items-center text-highlight hover:text-white transition-colors">
-                  <i class="fab fa-github mr-2"></i> Code
-                </a>
-              </div>
-            </div>
+  </section>
+
+  <!-- Contact & Connect (Updated with real info from PDF) -->
+  <section id="contact" class="py-24 bg-secondary/30">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center"><span class="gradient-text">Get In</span> Touch</h2>
+      <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+        <div class="bg-black/40 rounded-2xl p-8 border border-white/10 hover-card">
+          <h3 class="text-2xl font-bold text-white mb-6">Contact Info</h3>
+          <div class="space-y-5">
+            <a href="mailto:hammadbaseer4@gmail.com" class="flex items-center gap-4 text-gray-300 hover:text-white transition"><div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center"><i class="fas fa-envelope"></i></div><span>hammadbaseer4@gmail.com</span></a>
+            <a href="tel:+923151914509" class="flex items-center gap-4 text-gray-300 hover:text-white transition"><div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center"><i class="fas fa-phone-alt"></i></div><span>+92 315 1914509</span></a>
+            <div class="flex items-center gap-4 text-gray-300"><div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center"><i class="fas fa-map-pin"></i></div><span>Islamabad, Pakistan</span></div>
           </div>
-          
-          <!-- Project 2 -->
-          <div class="bg-secondary rounded-xl overflow-hidden hover-card">
-            <div class="h-48 bg-accent overflow-hidden">
-              <div class="w-full h-full flex items-center justify-center bg-gradient-to-r from-gray-800 to-gray-900">
-                <i class="fas fa-tv text-6xl text-highlight"></i>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-2xl font-bold text-highlight mb-3">Mazen.tv</h3>
-              <p class="text-light mb-4">
-                A streaming platform with user management, content delivery, and interactive features for media consumption.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">React.js</span>
-                <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">MongoDB</span>
-                <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">Node.js</span>
-                <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">Express.js</span>
-              </div>
-              <div class="flex space-x-4">
-                <a href="https://mazen.tv" class="flex items-center text-highlight hover:text-white transition-colors">
-                  <i class="fas fa-external-link-alt mr-2"></i> Live Demo
-                </a>
-                <a href="https://github.com/alpha-noyan" class="flex items-center text-highlight hover:text-white transition-colors">
-                  <i class="fab fa-github mr-2"></i> Code
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Project 4 -->
-          <div class="bg-secondary rounded-xl overflow-hidden hover-card">
-            <div class="h-48 bg-accent overflow-hidden">
-              <div class="w-full h-full flex items-center justify-center bg-gradient-to-r from-gray-800 to-gray-900">
-                <i class="fas fa-gamepad text-6xl text-highlight"></i>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-2xl font-bold text-highlight mb-3">Chor Police</h3>
-              <p class="text-light mb-4">
-                A real-time multiplayer game developed using WebSockets with interactive gameplay and chat features.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">Socket.io</span>
-                <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">Node.js</span>
-                <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">React.js</span>
-                <span class="px-3 py-1 bg-accent text-highlight rounded-full text-sm">MongoDB</span>
-              </div>
-              <div class="flex space-x-4">
-                <a href="https://chorpolice.bridgerex.com" class="flex items-center text-highlight hover:text-white transition-colors">
-                  <i class="fas fa-external-link-alt mr-2"></i> Live Demo
-                </a>
-                <a href="https://github.com/alpha-noyan" class="flex items-center text-highlight hover:text-white transition-colors">
-                  <i class="fab fa-github mr-2"></i> Code
-                </a>
-              </div>
-            </div>
+        </div>
+        <div class="bg-black/40 rounded-2xl p-8 border border-white/10 hover-card">
+          <h3 class="text-2xl font-bold text-white mb-4">Let’s Connect</h3>
+          <p class="text-gray-300 mb-6">Open for collaborations, AI/IoT projects, or full‑stack roles.</p>
+          <div class="flex gap-5 text-2xl">
+            <a href="https://www.linkedin.com/in/hammad-baseer-763682279/" target="_blank" class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-black transition"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/alpha-nayan" target="_blank" class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-black transition"><i class="fab fa-github"></i></a>
+            <a href="https://x.com/alpha_noyan" target="_blank" class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-black transition"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/noyan.alpha" target="_blank" class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-black transition"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-secondary">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-          Get In <span class="gradient-text">Touch</span>
-        </h2>
-        
-        <div class="max-w-2xl mx-auto">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-accent rounded-xl p-8 hover-card">
-              <h3 class="text-2xl font-bold text-highlight mb-6">Contact Info</h3>
-              <div class="space-y-6">
-                <a href="mailto:hammadbaseer4@gmail.com" class="flex items-center text-light hover:text-highlight transition-colors">
-                  <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4">
-                    <i class="fas fa-envelope text-highlight"></i>
-                  </div>
-                  <div>
-                    <div class="font-semibold">Email</div>
-                    <div>hammadbaseer4@gmail.com</div>
-                  </div>
-                </a>
-                
-                <a href="tel:+923350519148" class="flex items-center text-light hover:text-highlight transition-colors">
-                  <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4">
-                    <i class="fas fa-phone text-highlight"></i>
-                  </div>
-                  <div>
-                    <div class="font-semibold">Phone</div>
-                    <div>+92 315 1914509</div>
-                  </div>
-                </a>
-                
-                <div class="flex items-center text-light">
-                  <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4">
-                    <i class="fas fa-map-marker-alt text-highlight"></i>
-                  </div>
-                  <div>
-                    <div class="font-semibold">Location</div>
-                    <div>KDA, Kohat, Pakistan</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="bg-accent rounded-xl p-8 hover-card">
-              <h3 class="text-2xl font-bold text-highlight mb-6">Connect With Me</h3>
-              <p class="text-light mb-6">
-                Feel free to reach out for collaboration, opportunities, or just a friendly chat about tech and AI!
-              </p>
-              <div class="flex space-x-4">
-                <a href="https://www.linkedin.com/in/hammad-baseer-763682279/" class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-highlight hover:bg-highlight hover:text-primary transition-colors">
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com/alpha-noyan" class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-highlight hover:bg-highlight hover:text-primary transition-colors">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="https://x.com/alpha_noyan" class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-highlight hover:bg-highlight hover:text-primary transition-colors">
-                  <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://www.instagram.com/noyan.alpha?igsh=aWF2c2g5Ym42dzlo" class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-highlight hover:bg-highlight hover:text-primary transition-colors">
-                  <i class="fab fa-instagram"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+  <!-- Footer -->
+  <footer class="border-t border-white/10 py-10 bg-black text-center text-gray-500 text-sm">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+      <p>© <span id="currentYear"></span> Hammad Baseer — Software Engineer & AI Enthusiast</p>
+      <div class="flex gap-6 mt-4 md:mt-0">
+        <a href="#home" class="hover:text-white">Home</a>
+        <a href="#experience" class="hover:text-white">Experience</a>
+        <a href="#projects" class="hover:text-white">Projects</a>
       </div>
-    </section>
+    </div>
+  </footer>
 
-    <!-- Footer -->
-    <footer class="bg-primary border-t border-accent py-8">
-      <div class="container mx-auto px-6">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="mb-6 md:mb-0">
-            <h3 class="text-2xl font-bold gradient-text">Hammad Baseer</h3>
-            <p class="text-light mt-2">Software Engineer & AI Enthusiast</p>
-          </div>
-          
-          <div class="flex space-x-6">
-            <a href="#home" class="text-light hover:text-highlight transition-colors">Home</a>
-            <a href="#about" class="text-light hover:text-highlight transition-colors">About</a>
-            <a href="#projects" class="text-light hover:text-highlight transition-colors">Projects</a>
-            <a href="#contact" class="text-light hover:text-highlight transition-colors">Contact</a>
-          </div>
-        </div>
-        
-        <div class="border-t border-accent mt-8 pt-8 text-center text-light">
-          <p>&copy; <span id="currentYear"></span> Hammad Baseer. All Rights Reserved.</p>
-        </div>
-      </div>
-    </footer>
-
-    <script>
-      // Mobile menu toggle
-      const menuBtn = document.getElementById('menuBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-      
-      menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    document.querySelectorAll('#mobileMenu a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+    document.getElementById('currentYear').innerText = new Date().getFullYear();
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
       });
-      
-      // Close mobile menu when clicking a link
-      document.querySelectorAll('#mobileMenu a').forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-        });
-      });
-      
-      // Set current year in footer
-      document.getElementById('currentYear').textContent = new Date().getFullYear();
-      
-      // Smooth scrolling for all anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          const href = this.getAttribute('href');
-          
-          if (href === '#') return;
-          
-          e.preventDefault();
-          const targetElement = document.querySelector(href);
-          
-          if (targetElement) {
-            window.scrollTo({
-              top: targetElement.offsetTop - 80,
-              behavior: 'smooth'
-            });
-          }
-        });
-      });
-      
-      // Header scroll effect
-      window.addEventListener('scroll', function() {
-        const header = document.querySelector('header');
-        if (window.scrollY > 100) {
-          header.classList.add('border-b', 'border-accent');
-        } else {
-          header.classList.remove('border-b', 'border-accent');
-        }
-      });
-    </script>
-  </body>
+    });
+  </script>
+</body>
 </html>
